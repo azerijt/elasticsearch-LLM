@@ -3,9 +3,6 @@ import uuid
 import bedrock
 import re
 from flask import Flask, render_template, request
-from search import Search
-
-client = Search()
 
 # configure session state in streamlit
 
@@ -57,9 +54,9 @@ def handle_input():
     llm_chain = st.session_state["llm_chain"]
     # important part - initialise chain, call it and store the result
     chain = st.session_state["llm_app"]
-    result, amount_of_tokens = chain.run_chain(llm_chain, input)
+    result, amount_of_tokens = chain.run_chain(llm_chain, input_text)
     question_with_id = {
-        "question": input,
+        "question": input_text,
         "id": len(st.session_state.questions),
         "tokens": amount_of_tokens,
     }
@@ -69,14 +66,12 @@ def handle_input():
         {"answer": result, "id": len(st.session_state.questions)}
     )
     st.session_state.input = ""
-
-    search_result = client.perform_search(index="search-jaazbot", query=input_text)
     
-    for hit in search_result["hits"]["hits"]:
-        answer_text = hit["_source"]  # Use the relevant field from Elasticsearch
-        st.session_state.answers.append({"answer": answer_text, "id": len(st.session_state.questions)})
+    # for hit in search_result["hits"]["hits"]:
+    #     answer_text = hit["_source"]  # Use the relevant field from Elasticsearch
+    #     st.session_state.answers.append({"answer": answer_text, "id": len(st.session_state.questions)})
 
-    st.session_state.input = ""
+    # st.session_state.input = ""
 
 
 # next create functions to render the question, answer and our history
@@ -114,20 +109,3 @@ input = st.text_input(
 
 # run with command streamlit run app.py
 
-app = Flask(__name__)
-
-@app.get('/')
-def index():
-    return render_template('index.html')
-
-
-@app.post('/')
-def handle_search():
-    query = request.form.get('query', '')
-    return render_template(
-        'index.html', query=query, results=[], from_=0, total=0)
-
-
-@app.get('/document/<id>')
-def get_document(id):
-    return 'Document not found'

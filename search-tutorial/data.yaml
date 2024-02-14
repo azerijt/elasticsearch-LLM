@@ -1,0 +1,24 @@
+---
+apiVersion: avios.com/v1alpha1
+kind: Club
+name: rewards-club
+description: Rewards builds the front-end and back-end capabilities required to power Avios redemption journeys across our channels.
+owner: rewards-club-team
+---
+apiVersion: avios.com/v1alpha1
+kind: Club
+name: collection-club
+description: Collection makes it easy for our members to collect, purchase and transfer Avios.
+owner: collection-club-team
+---
+apiVersion: avios.com/v1alpha1
+kind: Club
+name: pricing-club
+description: Pricing optimises customer pricing to drive engagement and deliver commercial results.
+owner: pricing-club-team
+---
+apiVersion: avios.com/v1alpha1
+kind: Club
+name: core-engineering-club
+description: Core Engineering provides a central technology function that looks after the platform, working with the product teams to oversee the quality, security and reliability.
+owner: core-engineering-club-team

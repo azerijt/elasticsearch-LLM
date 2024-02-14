@@ -16,11 +16,11 @@ cffi==1.15.1
 charset-normalizer==3.1.0
 click==8.1.7
 dataclasses-json==0.6.1
-docutils @ file:///private/tmp/docutils-20230831-5903-jytmsf/docutils-0.20.1
 elastic-transport==8.10.0
 elasticsearch==8.11.1
 exceptiongroup==1.1.1
 filelock==3.13.1
+Flask==3.0.0
 frozenlist==1.4.0
 fsspec==2023.10.0
 gitdb==4.0.11
@@ -30,6 +30,7 @@ h11==0.14.0
 huggingface-hub==0.19.4
 idna==3.4
 importlib-metadata==6.8.0
+itsdangerous==2.1.2
 Jinja2==3.1.2
 jmespath==1.0.1
 jsonpatch==1.33
@@ -92,6 +93,7 @@ tzlocal==5.2
 urllib3==1.26.15
 validators==0.22.0
 webdriver-manager==3.8.6
+Werkzeug==3.0.1
 wsproto==1.2.0
 yarl==1.9.2
 zipp==3.17.0

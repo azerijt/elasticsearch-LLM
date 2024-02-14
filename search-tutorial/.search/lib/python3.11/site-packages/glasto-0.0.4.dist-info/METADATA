@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: glasto
+Version: 0.0.4
+Summary: The simple package to automate booking glastonbury tickets.
+Home-page: https://github.com/thomasms/glastoselenium
+Author: 
+Author-email: stainer.tom@gmail.com
+License: GPL-3.0
+Platform: UNKNOWN
+Requires-Python: >=3
+Requires-Dist: selenium
+
+UNKNOWN
+
+

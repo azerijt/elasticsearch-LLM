@@ -5,13 +5,14 @@ import time
 from dotenv import load_dotenv
 from elasticsearch import Elasticsearch
 
-ELASTIC_CLOUD_ID="My_deployment:ZXUtd2VzdC0yLmF3cy5jbG91ZC5lcy5pbyRjMDc3NTU4MmY1ZWE0MjI5OTQwOGQwYTM4YjYxOWQ1NCRlZWQ4OTcyMGJhMjI0ZmJmODhjNTQxY2U3NDMyODliNw=="
-ELASTIC_API_KEY="Zzh1Y2ZvMEI5QUxrSk5oMm5jaVA6TE1wU3pnWEtUaHFYb3dhakc4V2RFUQ=="
 
+ELASTIC_CLOUD_ID = os.getenv("ELASTIC_CLOUD_ID")
+ELASTIC_API_KEY=os.getenv("ELASTIC_API_KEY")
 
 class Search:
     def __init__(self):
-        self.es = Elasticsearch(cloud_id=ELASTIC_CLOUD_ID,
+        self.es = Elasticsearch(cloud_id=ELASTIC_CLOUD_ID
+,
                                 api_key=ELASTIC_API_KEY)
         client_info = self.es.info()
         print('Connected to Elasticsearch!')
@@ -32,3 +33,5 @@ class Search:
         
 
 client = Search()
+
+print(client.perform_search(index="search-jaazbot", query="avios"))
